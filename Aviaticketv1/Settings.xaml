@@ -1,0 +1,46 @@
+﻿<Page x:Class="Aviaticketv1.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Aviaticketv1"
+      mc:Ignorable="d" 
+      Height="280" Width="554"
+      Title="Settings" Background="{Binding Backgr}">
+
+    <Grid Name="set">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Name="Back" Style="{DynamicResource DefaultButtonStyle}" VerticalAlignment="Top" Width="25" Height="25" HorizontalAlignment="Left" Margin="20,10,0,0" BorderBrush="Transparent" Click="Back_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/Image/Icons/back.png"/>
+            </Button.Background>
+        </Button>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0">
+            <Label Content="{Binding Title}" Foreground="{Binding Label}" FontSize="26" HorizontalAlignment="Center" FontFamily="Times New Roman"></Label>
+            <Button Background="White" Template="{StaticResource StyleButton_s}" Margin="20" Width="200" Height="28" Content="{Binding butUpdate}" Click="Button_Click" FontFamily="Times New Roman"></Button>
+            <Button Background="White" Template="{StaticResource StyleButton_s}" Margin="0,0,0,15" Width="160" Height="28" Content="{Binding ExitAccount}" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+        </StackPanel>
+        <Label Grid.Row="1" Foreground="{Binding Label}" Content="{Binding langues}" HorizontalContentAlignment="Right" Margin="0,0,60,0" FontSize="20" FontFamily="Times New Roman"></Label>
+        <Label Grid.Row="2" Foreground="{Binding Label}" Content="{Binding theme}" HorizontalContentAlignment="Right" Margin="0,5,60,0" FontSize="20" FontFamily="Times New Roman"></Label>
+        <WrapPanel Grid.Row="1" Grid.Column="1" Margin="20,0,0,0" HorizontalAlignment="Left">
+            <CheckBox Name="En" FontSize="18" Foreground="{Binding Label}" Content="English" Margin="0,10,10,0" FontFamily="Times New Roman" Checked="CheckBox_Checked" />
+            <CheckBox Name ="Ru" FontSize="18" Foreground="{Binding Label}" Content="Русский" Margin="0,10,10,0" FontFamily="Times New Roman" Checked="Ru_Checked" />
+        </WrapPanel>
+        <ComboBox HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Width="200" Height="25" FontFamily="Times New Roman" SelectionChanged="ComboBox_SelectionChanged" >
+            <ComboBoxItem Name="Light">
+                <TextBlock Text="{Binding light}" FontSize="14"></TextBlock>
+            </ComboBoxItem>
+            <ComboBoxItem Name="Dark">
+                <TextBlock Text="{Binding dark}" FontSize="14"></TextBlock>
+            </ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Page>

@@ -1,0 +1,51 @@
+﻿<Page x:Class="Aviaticketv1.CodeEmail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Aviaticketv1"
+      mc:Ignorable="d" 
+      Height="245" Width="331" Background="{Binding Backgr}"
+      Title="CodeEmail">
+
+    <Grid>
+        <Button Name="Back" Style="{DynamicResource DefaultButtonStyle}" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="20,20,0,0" BorderBrush="Transparent" Click="Back_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/Image/Icons/back.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="{Binding Entcode}" Foreground="{Binding Label}" HorizontalAlignment="Center" FontSize="20" Margin="0,15,0,5" FontFamily="Times New Roman">
+            <Label.ToolTip>
+                <ToolTip Content="{Binding tool}"></ToolTip>
+            </Label.ToolTip>
+        </Label>
+        
+        <StackPanel>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,50,0,20">
+                <TextBox Name="n1" Width="25" Height="25" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="1" FontFamily="Times New Roman" KeyboardNavigation.TabIndex="0" Focusable="true" TextChanged="n1_TextChanged" ></TextBox>
+                <TextBox Name="n2" Width="25" Height="25" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="1" FontFamily="Times New Roman" KeyboardNavigation.TabIndex="1" Focusable="true" TextChanged="n1_TextChanged"></TextBox>
+                <TextBox Name="n3" Width="25" Height="25" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="1" FontFamily="Times New Roman" KeyboardNavigation.TabIndex="2" Focusable="true" TextChanged="n1_TextChanged"></TextBox>
+                <TextBox Name="n4" Width="25" Height="25" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="1" FontFamily="Times New Roman" KeyboardNavigation.TabIndex="3" Focusable="true" TextChanged="n1_TextChanged"></TextBox>
+                <TextBox Name="n5" Width="25" Height="25" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="1" FontFamily="Times New Roman" KeyboardNavigation.TabIndex="4" Focusable="true" TextChanged="n1_TextChanged"></TextBox>
+                <TextBox Name="n6" Width="25" Height="25" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="1" FontFamily="Times New Roman" KeyboardNavigation.TabIndex="5" Focusable="true"></TextBox>
+            </WrapPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Name="labtext" Grid.Row="0" Content="{Binding mes1}" Foreground="{Binding Label}" HorizontalContentAlignment="Center" FontFamily="Times New Roman"></Label>
+                <Label Name="counter" Grid.Row="1"  FontSize="18" Content="{Binding count}" Foreground="{Binding Label}" HorizontalContentAlignment="Center"></Label>
+                <TextBlock FontSize="18" Grid.Row="0" x:Name="CodeHyp" Visibility="Hidden" HorizontalAlignment="Center" FontFamily="Times New Roman">
+                <Hyperlink Style="{DynamicResource HyperL}" Cursor="Hand" Click="Hyperlink_Click">
+                    <TextBlock Name="hyperagain" Text="{Binding codeh}"></TextBlock>
+                </Hyperlink>
+                </TextBlock>
+            </Grid>
+            
+            <Button Template="{StaticResource StyleButton_s}" Background="White" Content="{Binding butcon}" Width="100" Click="Button_Click" FontFamily="Times New Roman"></Button>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

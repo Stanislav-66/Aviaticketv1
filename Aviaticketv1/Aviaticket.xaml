@@ -1,0 +1,283 @@
+﻿<Page x:Class="Aviaticketv1.Aviaticket"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Aviaticketv1"
+      mc:Ignorable="d" Background="{Binding Backgr}"
+      Title="Aviaticket" Height="640" Width="656">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Title}" Foreground="{Binding Label}" Margin="15" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="32" FontFamily="Times New Roman"></Label>
+        <Button Name="Back" Style="{DynamicResource DefaultButtonStyle}" Width="25" Height="25" HorizontalAlignment="Left" Margin="20,0,0,0" BorderBrush="Transparent" Click="Back_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/Image/Icons/back.png"/>
+            </Button.Background>
+        </Button>
+        <ListBox  Name="TicketList" Grid.Row="1" Grid.ColumnSpan="2" Margin="15" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+            <ListBoxItem Template="{StaticResource nosel}" Focusable="False" HorizontalAlignment="Left">
+                <Grid>
+                    <Border BorderBrush="Transparent">
+                        <WrapPanel>
+                            <Label Content="{Binding fromcity}" Margin="10,0,10,0" FontFamily="Times New Roman"></Label>
+                            <Label Content="{Binding tocity}" Margin="20,0,20,0" FontFamily="Times New Roman"></Label>
+                            <Label Content="{Binding fromdate}" Margin="20,0,20,0" FontFamily="Times New Roman"></Label>
+                            <Label Content="{Binding todate}" Margin="10,0,20,0" FontFamily="Times New Roman"></Label>
+                            <Label Content="{Binding strprice}" Margin="20,0,20,0" FontFamily="Times New Roman"></Label>
+                        </WrapPanel>
+                    </Border>
+                </Grid>
+            </ListBoxItem>
+            <ListBoxItem Tag="1" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                   
+                        <WrapPanel>
+                            <TextBlock Text="{Binding startCity[0]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                            <TextBlock Text="{Binding endCity[0]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                            <TextBlock Text="{Binding startDate[0]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                            <TextBlock Text="{Binding endDate[0]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                            <TextBlock Text="{Binding price[0]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                            <Button Visibility="{Binding but[0]}" Tag="0" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                                </Button.Background>
+                            </Button>
+                        </WrapPanel>
+                    
+                    <Button Tag="1" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+                
+            </ListBoxItem>
+            <ListBoxItem Tag="2" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[1]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[1]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[1]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[1]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[1]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[1]}" Tag="1" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="2" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="3" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[2]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[2]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[2]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[2]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[2]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[2]}" Tag="2" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="3" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="4" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[3]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[3]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[3]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[3]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[3]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[3]}" Tag="3" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="4" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="5" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[4]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[4]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[4]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[4]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[4]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[4]}" Tag="4" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="5" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="6" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[5]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[5]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[5]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[5]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[5]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[5]}" Tag="5" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="6" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="7" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[6]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[6]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[6]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[6]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[6]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[6]}" Tag="6" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="7" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="8" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[7]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[7]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[7]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[7]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[7]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[7]}" Tag="7" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="8" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="9" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[8]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[8]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[8]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[8]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[8]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[8]}" Tag="8" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="9" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+            <ListBoxItem Tag="10" HorizontalAlignment="Left" Focusable="False" Template="{StaticResource nosel}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding startCity[9]}" Width="100" Margin="10" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endCity[9]}" Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding startDate[9]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding endDate[9]}"  Margin="10" Width="100" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Text="{Binding price[9]}"  Margin="10" Width="90" TextWrapping="Wrap" FontFamily="Times New Roman"></TextBlock>
+                        <Button Visibility="{Binding but[9]}" Tag="9" Style="{DynamicResource DefaultButtonStyle}" BorderBrush="Transparent" Width="15" Height="15" Click="Button_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Image/Icons/like.png"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </WrapPanel>
+
+                    <Button Tag="10" Background="LightSteelBlue" Grid.Row="1" Margin="10" Template="{StaticResource StyleButton_s}"  Content="{Binding butticket}" Width="100" Height="28" FontFamily="Times New Roman" Click="Button_Click_1"></Button>
+                </Grid>
+
+            </ListBoxItem>
+
+        </ListBox>
+        
+    </Grid>
+</Page>
